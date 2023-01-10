@@ -4,16 +4,18 @@ import HeaderTodo from "./components/header-todo/HeaderTodo";
 import SectionsTodo from "./components/sections-todo/SectionsTodo";
 import FooterTodo from "./components/footer-todo/FooterTodo";
 
-import './AppTodo.css';
+import './App.css';
 
-const AppTodo = () => {
+const App = () => {
   return (
-    <main className="appTodo">
-      <HeaderTodo />
-      <SectionsTodo />
-      <FooterTodo />
+    <main className="app">
+        <div className="todo__wrapper">
+            <HeaderTodo />
+            <SectionsTodo />
+            <FooterTodo />
+        </div>
     </main>
   );
 }
 
-export default AppTodo;
+export default App;
