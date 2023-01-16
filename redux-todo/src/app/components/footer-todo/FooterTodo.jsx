@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import "./FooterTodo.css";
+import "./footer-todo.css";
 
 const FooterTodo = () => {
 

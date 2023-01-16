@@ -1,21 +1,25 @@
 import React, {useState} from "react";
 
 
-import "./SectionsTodo.css";
+
+import "./sections-todo.css";
+import listItemCreatorAction from "../../redux/actions/listItemCreatorAction";
 
 const SectionsTodo = () => {
-    const [todoListItem, setTodoListItem] = useState('');
+    const [listItemValue, setListItemValue] = useState('');
 
 
-    const onChangeTodoListItemHandle = (event) => {
-        setTodoListItem(event.target.value);
+    const onChangeListItemHandle = (event) => {
+        setListItemValue(event.target.value);
     }
 
     const onSubmitHandle = (event) => {
         event.preventDefault();
+
+        // FIXME ===>
+        // dispatch(listItemCreatorAction(listItemValue))
     }
 
-    console.log(todoListItem);
 
     return (
         <section className="todo__section-content">
@@ -23,9 +27,10 @@ const SectionsTodo = () => {
                 <div className="todo__input-content">
                     <input
                         className="todo__input"
+                        name="list-item"
                         type="text"
-                        value={todoListItem}
-                        onChange={onChangeTodoListItemHandle}
+                        value={listItemValue}
+                        onChange={onChangeListItemHandle}
                     />
                 </div>
             </form>
