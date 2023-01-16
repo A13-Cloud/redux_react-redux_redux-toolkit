@@ -1,14 +1,16 @@
 import React from "react";
 
 
-import "./HeaderTodo.css";
+import "./header-todo.css";
 
 const HeaderTodo = () => {
 
 
     return (
-        <header>
-
+        <header className="todo__header-content">
+            <h2 className="header__title">
+                Todo App
+            </h2>
         </header>
     );
 }
