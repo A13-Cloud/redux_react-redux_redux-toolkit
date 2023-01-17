@@ -1,9 +1,13 @@
 import React, {useState} from "react";
 
+import {createStore} from "redux";
+
+import listItemCreatorReducer from "../../redux/reducers/listItemCreatorReducer";
+
 
 
 import "./sections-todo.css";
-import listItemCreatorAction from "../../redux/actions/listItemCreatorAction";
+// import listItemCreatorAction from "../../redux/actions/listItemCreatorAction";
 
 const SectionsTodo = () => {
     const [listItemValue, setListItemValue] = useState('');
@@ -20,6 +24,13 @@ const SectionsTodo = () => {
         // dispatch(listItemCreatorAction(listItemValue))
     }
 
+    const store = createStore(listItemCreatorReducer);
+    store.dispatch({
+        type: "list_item/creator",
+        data: listItemValue
+    });
+
+    console.log(store.getState())
 
     return (
         <section className="todo__section-content">
