@@ -1,13 +1,9 @@
 import React, {useState} from "react";
 
-import {createStore} from "redux";
-
-import listItemCreatorReducer from "../../redux/reducers/listItemCreatorReducer";
-
-
+import {store} from "../../redux/store/store";
 
 import "./sections-todo.css";
-// import listItemCreatorAction from "../../redux/actions/listItemCreatorAction";
+import listItemCreatorAction from "../../redux/actions/listItemCreatorAction";
 
 const SectionsTodo = () => {
     const [listItemValue, setListItemValue] = useState('');
@@ -19,23 +15,16 @@ const SectionsTodo = () => {
 
     const onSubmitHandle = (event) => {
         event.preventDefault();
-
-        // FIXME ===>
-        // dispatch(listItemCreatorAction(listItemValue))
+        store.dispatch(listItemCreatorAction(listItemValue, listItemValue));
     }
 
-    const store = createStore(listItemCreatorReducer);
-    store.dispatch({
-        type: "list_item/creator",
-        data: listItemValue
-    });
 
     console.log(store.getState())
 
     return (
         <section className="todo__section-content">
             <form onSubmit={onSubmitHandle} className="todo__list-item-create">
-                <div className="todo__input-content">
+                {/*<div className="todo__input-content">*/}
                     <input
                         className="todo__input"
                         name="list-item"
@@ -43,7 +32,8 @@ const SectionsTodo = () => {
                         value={listItemValue}
                         onChange={onChangeListItemHandle}
                     />
-                </div>
+                    <input type="submit" hidden/>
+                {/*</div>*/}
             </form>
             <div className="todo__list-content">
                 <ul className="todo__list">
