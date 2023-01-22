@@ -15,7 +15,7 @@ const SectionsTodo = () => {
         event.preventDefault();
         store.dispatch(listItemCreatorAction(listItemValue, `${listItemValue}-${Math.floor(Math.random() * 1000)}`));
         setListItemValue("");
-        // setTodoList(store.getState().listItemCreatorReducer.listItems);
+        setTodoList(store.getState().listItemCreatorReducer.listItems);
     };
 
 
