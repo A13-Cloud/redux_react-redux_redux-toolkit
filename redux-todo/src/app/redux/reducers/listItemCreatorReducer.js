@@ -11,10 +11,8 @@ const listItemCreatorReducer = (state = initialState, action) => {
                ...state,
                listItems: [...state.listItems, action.data]
            }
-
         default:
             return state;
-
     }
 }
 
