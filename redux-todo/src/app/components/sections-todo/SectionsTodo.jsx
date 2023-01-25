@@ -18,7 +18,6 @@ const SectionsTodo = () => {
         setTodoList(store.getState().listItemCreatorReducer.listItems);
     };
 
-
     return (
         <section className="todo__section-content">
             <form onSubmit={onSubmitHandle} className="todo__list-item-create">
@@ -34,14 +33,14 @@ const SectionsTodo = () => {
                 </div>
             </form>
             <div className="todo__list-content">
-                <ul className="todo__list">
-                    {todoList.map(item => {
-                            return <li key={item.id} className="todo__list-item">
-                                {item.text}
-                            </li>
-                        }
-                    )}
-                </ul>
+                {todoList.map(item => {
+                        return <form key={item.id} className="comments-item">
+                            <div className="comments-item-delete">&times;</div>
+                            <input type="text" value={item.text}/>
+                            <input type="submit" hidden/>
+                        </form>
+                    }
+                )}
             </div>
         </section>
     );
