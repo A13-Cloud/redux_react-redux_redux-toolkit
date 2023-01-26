@@ -4,6 +4,6 @@ export const listItemUpdateAction = (text, id) =>
 {
     return {
         type: LIST_ITEM_UPDATE,
-        data: {text, id}
+        // data: {text, id}
     }
 };
