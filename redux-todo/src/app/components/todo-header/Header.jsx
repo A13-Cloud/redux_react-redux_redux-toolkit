@@ -1,9 +1,9 @@
 import React from "react";
 
 
-import "./header-todo.css";
+import "./header.css";
 
-const HeaderTodo = () => {
+const Header = () => {
 
 
     return (
@@ -15,4 +15,4 @@ const HeaderTodo = () => {
     );
 }
 
-export default HeaderTodo;
+export default Header;

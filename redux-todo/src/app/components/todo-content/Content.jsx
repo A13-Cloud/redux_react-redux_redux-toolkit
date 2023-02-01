@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {store} from "../../redux/store/store";
-import "./sections-todo.css";
+import "./content.css";
 import listItemCreatorAction from "../../redux/actions/listItemCreatorAction";
 
-const SectionsTodo = () => {
+const Content = () => {
     const [listItemValue, setListItemValue] = useState('');
     const [todoList, setTodoList] = useState([]);
 
@@ -46,4 +46,4 @@ const SectionsTodo = () => {
     );
 }
 
-export default SectionsTodo;
+export default Content;

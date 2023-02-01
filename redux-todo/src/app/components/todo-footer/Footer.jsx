@@ -1,9 +1,9 @@
 import React from "react";
 
 
-import "./footer-todo.css";
+import "./footer.css";
 
-const FooterTodo = () => {
+const Footer = () => {
 
 
     return (
@@ -19,4 +19,4 @@ const FooterTodo = () => {
     );
 }
 
-export default FooterTodo;
+export default Footer;

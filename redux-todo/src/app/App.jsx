@@ -1,8 +1,8 @@
 import React from "react";
 
-import HeaderTodo from "./components/header-todo/HeaderTodo";
-import SectionsTodo from "./components/sections-todo/SectionsTodo";
-import FooterTodo from "./components/footer-todo/FooterTodo";
+import Header from "./components/todo-header/Header";
+import Content from "./components/todo-content/Content";
+import Footer from "./components/todo-footer/Footer";
 
 import './App.css';
 
@@ -10,9 +10,9 @@ const App = () => {
     return (
         <main className="app">
             <div className="todo__wrapper">
-                <HeaderTodo/>
-                <SectionsTodo/>
-                <FooterTodo/>
+                <Header/>
+                <Content/>
+                <Footer/>
             </div>
         </main>
     );
