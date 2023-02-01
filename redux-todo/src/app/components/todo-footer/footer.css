@@ -1,19 +1,19 @@
-.todo__footer-content {
+.footer__content {
     height: 10%;
     display: flex;
     justify-content: center;
 }
 
-.todo__result-content {
+.tabs {
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-.todo__tabs-list {
+.tabs__list {
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
-.tabs__tabs-list-item {}
+.tabs__item {}
