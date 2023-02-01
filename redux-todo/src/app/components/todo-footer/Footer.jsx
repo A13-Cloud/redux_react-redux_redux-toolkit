@@ -7,12 +7,12 @@ const Footer = () => {
 
 
     return (
-        <footer className="todo__footer-content">
-            <div className="todo__result-content">
-                <ul className="todo__tabs-list">
-                    <li className="tabs__tabs-list-item">To Do</li>
-                    <li className="tabs__tabs-list-item">In Progress</li>
-                    <li className="tabs__tabs-list-item">Done</li>
+        <footer className="footer__content">
+            <div className="tabs">
+                <ul className="tabs__list">
+                    <li className="tabs__item">To Do</li>
+                    <li className="tabs__item">In Progress</li>
+                    <li className="tabs__item">Done</li>
                 </ul>
             </div>
         </footer>

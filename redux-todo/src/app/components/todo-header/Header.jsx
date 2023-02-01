@@ -7,8 +7,8 @@ const Header = () => {
 
 
     return (
-        <header className="todo__header-content">
-            <h2 className="header__title">
+        <header className="header__content">
+            <h2 className="title">
                 Todo App
             </h2>
         </header>
