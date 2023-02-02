@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {store} from "../../redux/store/store";
-import "./sections-todo.css";
+import "./container.css";
 import listItemCreatorAction from "../../redux/actions/listItemCreatorAction";
 
-const SectionsTodo = () => {
+const Container = () => {
     const [listItemValue, setListItemValue] = useState('');
     const [todoList, setTodoList] = useState([]);
 
@@ -18,14 +18,13 @@ const SectionsTodo = () => {
         setTodoList(store.getState().listItemCreatorReducer.listItems);
     };
 
-
     return (
-        <section className="todo__section-content">
-            <form onSubmit={onSubmitHandle} className="todo__list-item-create">
-                <div className="todo__input-content">
+        <section className="container">
+            <form onSubmit={onSubmitHandle} className="list-item__create">
+                <div className="input__content">
                     <input
-                        className="todo__input"
-                        name="todo__input"
+                        className="input__creator"
+                        name="input__creator"
                         type="text"
                         value={listItemValue}
                         onChange={onChangeListItemHandle}
@@ -33,18 +32,18 @@ const SectionsTodo = () => {
                     <input type="submit" hidden/>
                 </div>
             </form>
-            <div className="todo__list-content">
-                <ul className="todo__list">
-                    {todoList.map(item => {
-                            return <li key={item.id} className="todo__list-item">
-                                {item.text}
-                            </li>
-                        }
-                    )}
-                </ul>
+            <div className="list__content">
+                {todoList.map(item => {
+                        return <form key={item.id} className="list__item">
+                            <div className="item__delete">&times;</div>
+                            <input className="item" type="text" value={item.text}/>
+                            <input type="submit" hidden/>
+                        </form>
+                    }
+                )}
             </div>
         </section>
     );
 }
 
-export default SectionsTodo;
+export default Container;
