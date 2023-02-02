@@ -8,9 +8,9 @@ const Container = () => {
     const [listItemValue, setListItemValue] = useState('');
     const [todoList, setTodoList] = useState([]);
 
-    const onChangeListItemHandle = (event) => {
-        setListItemValue(event.target.value);
-    };
+    // const onChangeListItemHandle = (event) => {
+    //     setListItemValue(event.target.value);
+    // };
 
     const onSubmitHandle = (event) => {
         event.preventDefault();
@@ -40,7 +40,6 @@ const Container = () => {
         <div className="list__content">
             {todoList.map(item => {
                 console.log(item)
-                // CREATE NEW COMPONENT FOR SEND ID
                 return <form key={item.id} className="list__item">
                     <div onClick={onClickListItemHandle} className="item__delete">&times;</div>
                     <input className="item" type="text" defaultValue={item.text}/>
