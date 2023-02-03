@@ -40,7 +40,6 @@ const Container = () => {
         <div className="list__content">
             {todoList.map(item => {
                 console.log(item)
-                // CREATE NEW COMPONENT FOR SEND ID
                 return <form key={item.id} className="list__item">
                     <div onClick={onClickListItemHandle} className="item__delete">&times;</div>
                     <input className="item" type="text" defaultValue={item.text}/>
