@@ -8,9 +8,9 @@ const Container = () => {
     const [listItemValue, setListItemValue] = useState('');
     const [todoList, setTodoList] = useState([]);
 
-    const onChangeListItemHandle = (event) => {
-        setListItemValue(event.target.value);
-    };
+    // const onChangeListItemHandle = (event) => {
+    //     setListItemValue(event.target.value);
+    // };
 
     const onSubmitHandle = (event) => {
         event.preventDefault();
