@@ -1,7 +1,7 @@
 import React from "react";
 
 import Header from "./components/todo-header/Header";
-import Container from "./components/todo-container/container";
+import Container from "./components/todo-container/Container";
 import Footer from "./components/todo-footer/Footer";
 
 import './App.css';

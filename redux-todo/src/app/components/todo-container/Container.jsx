@@ -3,26 +3,22 @@ import {store} from "../../redux/store/store";
 import "./container.css";
 import listItemCreatorAction from "../../redux/actions/listItemCreatorAction";
 import listItemDeleteAction from "../../redux/actions/listItemDeleteAction";
+import ListItem from "./todo-list-item/ListItem";
 
 const Container = () => {
     const [listItemValue, setListItemValue] = useState('');
     const [todoList, setTodoList] = useState([]);
 
-    // const onChangeListItemHandle = (event) => {
-    //     setListItemValue(event.target.value);
-    // };
+    const onChangeListItemHandle = (event) => {
+        setListItemValue(event.target.value);
+    };
 
     const onSubmitHandle = (event) => {
         event.preventDefault();
         store.dispatch(listItemCreatorAction(listItemValue, `${listItemValue}-${Math.floor(Math.random() * 1000)}`));
         setListItemValue("");
-        setTodoList(store.getState().listItemCreatorReducer.listItems);
+        setTodoList(store.getState().listItemReducers["listItems"]);
     };
-
-    const onClickListItemHandle = (event) => {
-        event.preventDefault();
-        store.dispatch(listItemDeleteAction())
-    }
 
     return (<section className="container">
         <form onSubmit={onSubmitHandle} className="list-item__create">
@@ -39,12 +35,7 @@ const Container = () => {
         </form>
         <div className="list__content">
             {todoList.map(item => {
-                console.log(item)
-                return <form key={item.id} className="list__item">
-                    <div onClick={onClickListItemHandle} className="item__delete">&times;</div>
-                    <input className="item" type="text" defaultValue={item.text}/>
-                    <input type="submit" hidden/>
-                </form>
+                return <ListItem key={item.id} item={item}/>
             })}
         </div>
     </section>);
