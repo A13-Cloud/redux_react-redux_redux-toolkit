@@ -16,7 +16,6 @@ const listItemReducers = (state = initialState, action) => {
            }
         case LIST_ITEM_DELETE:
             const withoutDeletedItem = state.listItems.findIndex(index => index.id === action.id);
-            console.log(withoutDeletedItem);
             return {
                 ...state
             };
