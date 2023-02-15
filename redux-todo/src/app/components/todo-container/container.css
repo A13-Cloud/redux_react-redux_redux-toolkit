@@ -1,19 +1,29 @@
-.todo__section-content {
-    height: 80%;
+.container {
+    height: calc(100% - 40px);
 }
 
-.container {}
+.list-item__create {
+    height: max-content;
+}
 
-.list-item__create {}
+.input__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeb9b9;
+    padding: 10px;
+}
 
-.input__content {}
+.input__creator {
+    height: 30px;
+    width: 100%;
+    padding: 0 5px;
+    outline: none;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 3px;
+}
 
-.input__creator {}
-
-.list__content {}
-
-.list__item {}
-
-.item__delete {}
-
-.item {}
+.list__content {
+    padding: 5px 10px;
+}

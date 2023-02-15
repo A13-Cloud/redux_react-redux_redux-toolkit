@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {store} from "../../redux/store/store";
 import "./container.css";
 import listItemCreatorAction from "../../redux/actions/listItemCreatorAction";
-import listItemDeleteAction from "../../redux/actions/listItemDeleteAction";
 import ListItem from "./todo-list-item/ListItem";
 
 const Container = () => {
