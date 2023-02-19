@@ -15,9 +15,17 @@ const listItemReducers = (state = initialState, action) => {
                listItems: [...state.listItems, action.data]
            }
         case LIST_ITEM_DELETE:
-            const withoutDeletedItem = state.listItems.findIndex(index => index.id === action.id);
+            const deletedItem = state.listItems.findIndex(index => index.id === action.id);
+            const withoutDeletedItem = [
+                ...state.listItems.slice(0, deletedItem),
+                ...state.listItems.slice(deletedItem + 1)
+            ];
+
+
+
             return {
-                ...state
+                ...state,
+                listItems: withoutDeletedItem
             };
         default:
             return state;
