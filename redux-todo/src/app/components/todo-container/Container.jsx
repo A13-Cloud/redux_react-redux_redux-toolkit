@@ -12,11 +12,15 @@ const Container = () => {
         setListItemValue(event.target.value);
     };
 
+    const onUpdateTodoList = () => {
+        setTodoList(store.getState().listItemReducers["listItems"]);
+    }
+
     const onSubmitHandle = (event) => {
         event.preventDefault();
         store.dispatch(listItemCreatorAction(listItemValue, `${listItemValue}-${Math.floor(Math.random() * 1000)}`));
-        setTodoList(store.getState().listItemReducers["listItems"]);
         setListItemValue("");
+        onUpdateTodoList();
     };
 
     return (<section className="container">
@@ -34,7 +38,7 @@ const Container = () => {
         </form>
         <div className="list__content">
             {todoList.map(item => {
-                return <ListItem key={item.id} item={item}/>
+                return <ListItem key={item.id} item={item} onUpdateTodoList={onUpdateTodoList}/>
             })}
         </div>
     </section>);
