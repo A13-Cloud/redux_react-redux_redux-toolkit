@@ -16,6 +16,7 @@ const ListItem = (props) => {
 
             if (previousListItems !== currentListItems) {
                 currentListItems = previousListItems;
+                props.onUpdateTodoList();
             }
         }
         let unsubscribe = store.subscribe(handleChange);
