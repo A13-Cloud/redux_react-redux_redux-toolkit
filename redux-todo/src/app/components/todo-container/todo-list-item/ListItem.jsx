@@ -1,19 +1,18 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {store} from "../../../redux/store/store";
 import listItemDeleteAction from "../../../redux/actions/listItemDeleteAction";
 
 import "./listItem.css";
-import listItemReducers from "../../../redux/reducers/listItemReducers";
 import listItemUpdateAction from "../../../redux/actions/listItemUpdateAction";
 
 const ListItem = (props) => {
     const [listItemText, setListItemText] = useState("");
 
-    const onUpdateListItemHandle = (event) =>
-    {
+    const onUpdateListItemHandle = (event) => {
         event.preventDefault();
         store.dispatch(listItemUpdateAction(listItemText, props.item.id));
-    }
+    };
+
     const onDeleteListItemHandle = (event) => {
         event.preventDefault();
         store.dispatch(listItemDeleteAction(props.item.id));
@@ -30,12 +29,27 @@ const ListItem = (props) => {
         let unsubscribe = store.subscribe(handleChange);
         handleChange();
         return unsubscribe;
-    }
+    };
 
-    // TODO: ===> onChange:
+    const onChangeListItemTextHandle = (event) => {
+        console.log(event.target.value)
+        setListItemText(event.target.value);
+    };
+
+    useEffect(() => {
+        if (props.item.text) {
+            setListItemText(listItemText);
+        }
+    }, [props.item.text]);
+
 
     return <form key={props.item.id} className="list__item" onSubmit={onUpdateListItemHandle}>
-        <input className="item" type="text" value={listItemText} defaultValue={props.item.text}/>
+        <input
+            className="item"
+            type="text"
+            value={props.item.text}
+            onChange={onChangeListItemTextHandle}
+        />
         <div onClick={onDeleteListItemHandle} className="item__delete">&times;</div>
         <input type="submit" hidden/>
     </form>

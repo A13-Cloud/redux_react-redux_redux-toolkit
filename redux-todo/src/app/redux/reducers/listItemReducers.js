@@ -15,12 +15,12 @@ const listItemReducers = (state = initialState, action) => {
                 listItems: [...state.listItems, action.data]
             }
         case LIST_ITEM_UPDATE:
-            const updateItem = state.comments.findIndex(index => index.id === action.data.id);
+            const updateItem = state.listItems.findIndex(index => index.id === action.data.id);
 
             const withUpdatedItems = [
-                ...state.comments.slice(0, updateItem),
+                ...state.listItems.slice(0, updateItem),
                 action.data,
-                ...state.comments.slice(updateItem + 1)
+                ...state.listItems.slice(updateItem + 1)
             ];
 
             return {
